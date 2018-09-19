@@ -1,7 +1,7 @@
-var DEFAULT_YANDEX = "https://yandex.ru/images/search?img_url=";
-var SEARCH_URL_END = "&rpt=imageview";
-var DEFAULT_SAUCENAO = "https://saucenao.com/search.php?url=";
-var DEFAULT_GOOGLE = "https://images.google.com/searchbyimage?site=search&image_url=";
+const DEFAULT_YANDEX = "https://yandex.ru/images/search?img_url=";
+const SEARCH_URL_END = "&rpt=imageview";
+const DEFAULT_SAUCENAO = "https://saucenao.com/search.php?url=";
+const DEFAULT_GOOGLE = "https://images.google.com/searchbyimage?site=search&image_url=";
 
 function openTabAfterCurrent(url){
   browser.tabs.query({ currentWindow: true, active: true }, function (tabs) {
@@ -14,11 +14,11 @@ function openTabAfterCurrent(url){
 }
 
 function reverseImage(info){
-  var searchstring = info.srcUrl;
+  let searchstring = info.srcUrl;
   
-  var sau = DEFAULT_SAUCENAO + searchstring;
-  var yan = DEFAULT_YANDEX + searchstring + SEARCH_URL_END;
-  var goo = DEFAULT_GOOGLE + searchstring;
+  let sau = DEFAULT_SAUCENAO + searchstring;
+  let yan = DEFAULT_YANDEX + searchstring + SEARCH_URL_END;
+  let goo = DEFAULT_GOOGLE + searchstring;
   
   openTabAfterCurrent(sau);
   openTabAfterCurrent(yan);
